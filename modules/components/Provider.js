@@ -4,13 +4,11 @@ export default class Provider extends Component {
   constructor(props, context) {
     super(props, context)
     this.renderer = props.renderer
+    this.fela = this.renderer.render.bind(this.renderer)
   }
 
   getChildContext() {
-    return {
-      fela: this.renderer.render.bind(this.renderer),
-      renderer: this.renderer
-    }
+    return { fela: this.fela }
   }
 
   render() {
@@ -20,6 +18,5 @@ export default class Provider extends Component {
 
 Provider.propTypes = { renderer: PropTypes.object.isRequired }
 Provider.childContextTypes = {
-  fela: PropTypes.func.isRequired,
-  renderer: PropTypes.object.isRequired
+  fela: PropTypes.func.isRequired
 }
