@@ -6,8 +6,7 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "scripts": {
-    "demo:server": "babel-node example/server.js",
-    "dist": "cross-env NODE_ENV=production babel-node scripts/buildPackages && cross-env NODE_ENV=development babel-node scripts/buildPackages",
+    "demo": "babel-node example/server.js",
     "lint": "eslint modules",
     "prepare": "npm run lint && npm test && npm run dist && npm run babel",
     "release": "npm run prepare && npm publish",
@@ -54,7 +53,6 @@
     "fela-plugin-prefixer": "^1.0.0-alpha.5",
     "fela-plugin-unit": "^1.0.0-alpha.5",
     "fs-extra": "^0.30.0",
-    "inline-style-prefix-all": "^2.0.2",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.4.5",
     "react": "^15.1.0",
@@ -65,8 +63,7 @@
     "rollup-plugin-node-resolve": "^1.5.0",
     "rollup-plugin-uglify": "^0.3.1",
     "sinon": "^1.17.3",
-    "sinon-chai": "^2.8.0",
-    "unitless-css-property": "^1.0.1"
+    "sinon-chai": "^2.8.0"
   },
   "babel": {
     "presets": [

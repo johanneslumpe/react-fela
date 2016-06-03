@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Keyframe } from 'fela'
 
 const Keyframes = (props, { fela }) => (
-<div className={fela(container, { name: fela(positionFrames) })}>
-  <div className={fela(box, { name: fela(backgroundFrames) })} />
-</div>
+  <div className={fela(styles.container, { name: fela(positionFrames) })}>
+    <div className={fela(styles.box, { name: fela(backgroundFrames) })} />
+  </div>
 )
 
 Keyframes.contextTypes = { fela: PropTypes.func.isRequired }
@@ -49,14 +49,15 @@ const backgroundFrames = new Keyframe(props => ({
   }
 }))
 
-const container = props => ({
-  height: 1000,
-  animation: props.name + ' 6s linear 0s infinite'
-})
-
-const box = props => ({
-  height: 100,
-  width: 100,
-  borderRadius: 100,
-  animation: props.name + ' 12s linear 0s infinite'
-})
+const styles = {
+  container: props => ({
+    height: 300,
+    animation: props.name + ' 6s linear 0s infinite'
+  }),
+  box: props => ({
+    height: 100,
+    width: 100,
+    borderRadius: 100,
+    animation: props.name + ' 12s linear 0s infinite'
+  })
+}
