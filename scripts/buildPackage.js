@@ -1,6 +1,8 @@
 import rollup from 'rollup'
 import babel from 'rollup-plugin-babel'
 import uglify from 'rollup-plugin-uglify'
+import commonjs from 'rollup-plugin-commonjs'
+import nodeResolver from 'rollup-plugin-node-resolve'
 
 // Small helper to error and exit on fail
 const errorOnFail = err => {
@@ -15,9 +17,15 @@ const babelPlugin = babel({
   presets: [ 'es2015-rollup', 'stage-0' ],
   plugins: [ 'transform-dev-warning', 'transform-node-env-inline' ]
 })
+const nodeResolverPlugin = nodeResolver({
+  jsnext: true,
+  main: true,
+  skip: 'react'
+})
+const commonJSPlugin = commonjs({ include: 'node_modules/**' })
 const uglifyPlugin = uglify()
 
-const plugins = [ babelPlugin ]
+const plugins = [ babelPlugin, nodeResolverPlugin, commonJSPlugin ]
 
 function rollupConfig(minify) {
   return {

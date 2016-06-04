@@ -3,9 +3,25 @@
   "version": "1.0.0",
   "description": "React bindings for Fela",
   "repository": "https://github.com/rofrischmann/react-fela/",
+  "main": "lib/index.js",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "/lib",
+    "/dist"
+  ],
+  "keywords": [
+    "fela",
+    "dynamic styling",
+    "react",
+    "css",
+    "styling",
+    "cssinjs"
+  ],
   "author": "Robin Frischmann",
   "license": "MIT",
   "scripts": {
+    "babel": "babel -d lib modules",
     "dist": "cross-env NODE_ENV=production babel-node scripts/buildPackage && cross-env NODE_ENV=development babel-node scripts/buildPackage",
     "example": "webpack-dev-server --config --no-info --content-base ./example/",
     "example:server": "babel-node example/server.js",
