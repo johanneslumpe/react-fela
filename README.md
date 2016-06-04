@@ -87,6 +87,8 @@ Used to automatically bind the component's props to the render function. This es
 Optionally pass a custom mapper to alter the shape of the props passed to Fela.
 
 ```javascript
+import { bindPropsToFela } from 'react-fela'
+
 // passes the props with the exact same keys
 const EnhancedApp = bindPropsToFela()(App)
 
@@ -105,11 +107,13 @@ const EnhancedApp = bindPropsToFela(mapper)(App)
 
 Similar to `bindPropsToFela` but with a more dynamic nature. It binds the current component state to Fela's render function.<br>
 This is especially useful if you want to modify styles based on user input or user interaction. It adds the modified render function to the component itself (`this.fela`).<br>
-You may also pass a mapper to alter the shape. It also accepts the component's props as second parameter.
+You may also pass a mapper to alter the shape. Additionally it accepts passes the component's props as second parameter to avoid the need for both HoCs.
 
 > It only works with stateful class components as functional components do not have state at all.
 
 ```javascript
+import { bindStateToFela } from 'react-fela'
+
 const EnhancedApp = bindStateToFela()(App)
 
 const mapper = (state, props) => ({
