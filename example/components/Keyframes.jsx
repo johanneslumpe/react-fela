@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { Keyframe } from 'fela'
 
 const Keyframes = (props, { fela }) => (
-  <div className={fela(styles.container, { name: fela(positionFrames) })}>
-    <div className={fela(styles.box, { name: fela(backgroundFrames) })} />
-  </div>
+<div className={fela(styles.container, { name: fela(positionFrames) })}>
+  <div className={fela(styles.box, { name: fela(backgroundFrames) })} />
+</div>
 )
 
 Keyframes.contextTypes = { fela: PropTypes.func.isRequired }

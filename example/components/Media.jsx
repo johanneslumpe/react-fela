@@ -1,16 +1,18 @@
 import React, { Component, PropTypes } from 'react'
+import bindPropsToFela from '../../modules/helpers/bindPropsToFela'
 
-const Media = (props, { fela }) => <div className={fela(styles)}>
-                                     Resize your window
-                                   </div>
+const Media = ({ fela }) => (
+<div className={fela(styles)}>
+  Resize your window
+</div>
+)
 
-Media.contextTypes = { fela: PropTypes.func.isRequired }
-export default Media
+export default bindPropsToFela()(Media)
 
 const styles = props => ({
   padding: 40,
   textAlign: 'center',
-  color: 'white',
+  color: props.color,
   fontSize: 40,
   backgroundColor: 'red',
   '@media (max-width: 500px)': {

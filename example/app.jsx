@@ -1,12 +1,12 @@
 import React from 'react'
-import Container from './components/layout/Container.jsx'
-import UserAction from './components/examples/UserAction.jsx'
-import ChildIndex from './components/examples/ChildIndex.jsx'
-import Media from './components/examples/Media.jsx'
-import Keyframes from './components/examples/Keyframes.jsx'
-import Pseudo from './components/examples/Pseudo.jsx'
+import Container from './components/Container.jsx'
+import UserAction from './components/UserAction.jsx'
+import ChildIndex from './components/ChildIndex.jsx'
+import Media from './components/Media.jsx'
+import Keyframes from './components/Keyframes.jsx'
+import Pseudo from './components/Pseudo.jsx'
 
-import bindStateToFela from '../modules/helper/bindStateToFela'
+import bindStateToFela from '../modules/helpers/bindStateToFela'
 
 class App extends React.Component {
   constructor(props, context) {
@@ -36,7 +36,7 @@ class App extends React.Component {
         </Container>
         <Container group title="3. Media queries">
           <Container noPadding>
-            <Media />
+            <Media color="red" />
           </Container>
         </Container>
         <Container group title="5. Keyframe animations">
@@ -52,7 +52,6 @@ class App extends React.Component {
 export default bindStateToFela(state => ({ top: state.offset }))(App)
 
 const selector = props => {
-  console.log(props)
   return {
     marginTop: props.top,
     marginBottom: 30,

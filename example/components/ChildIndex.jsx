@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import look, { StyleSheet } from '../../../modules'
 
 export default class ChildIndex extends Component {
   render() {
