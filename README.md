@@ -21,7 +21,7 @@ npm i --save react-fela
 ```
 
 The package is also available on [npmcdn](https://npmcdn.com/) for those not using npm.
-> **Note**: You need to include React and Fela on your own as well.
+> You need to include React and Fela on your own as well.
 
 ```HTML
 <!-- Development build (with warnings)  -->
@@ -78,6 +78,7 @@ const selector = props => ({
 
 ## Helper HoCs
 I have found that there are some recurring patterns on how to actually render your selectors and keyframes. To simplify those, this package provides two HoCs ([Higher-order Components](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.njbld18x8)).
+> They only help to write clean and readable code. You do not have to use them nor do they ship any new feature you could not accomplish without.
 
 ### `bindPropsToFela(mapper)`
 **Function?\<mapper>**
@@ -106,7 +107,7 @@ Similar to `bindPropsToFela` but with a more dynamic nature. It binds the curren
 This is especially useful if you want to modify styles based on user input or user interaction. It adds the modified render function to the Component itself (`this.fela`).<br>
 You may also pass a mapper to alter the shape. It also accepts the Component's props as second parameter.
 
-> Note: It only works with stateful class Components as function Components do not have state at all.
+> It only works with stateful class Components as function Components do not have state at all.
 
 ```javascript
 const EnhancedApp = bindStateToFela()(App)
