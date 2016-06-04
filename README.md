@@ -34,7 +34,7 @@ The package is also available on [npmcdn](https://npmcdn.com/) for those not usi
 ### `<Provider renderer>`
 **Renderer\<renderer>**
 
-The `<Provider>` Component should wrap your whole application. It only accepts a single prop which is your [Fela Renderer](https://github.com/rofrischmann/fela/blob/master/docs/GettingStarted.md#8-rendering).<br>
+The `<Provider>` component should wrap your whole application. It only accepts a single prop which is your [Fela Renderer](https://github.com/rofrischmann/fela/blob/master/docs/GettingStarted.md#8-rendering).<br>
 It uses React's context to pass down the Renderer's render function. It actually is all you need to fully use Fela within your React application.
 ```javascript
 import { Provider } from 'react-fela'
@@ -50,7 +50,7 @@ render(
   document.getElementById('app')
 )
 ```
-Your Components can now directly use the render function as `fela`.
+Your components can now directly use the render function as `fela`.
 ```javascript
 import React, { PropTypes } from 'react'
 
@@ -83,7 +83,7 @@ I have found that there are some recurring patterns on how to actually render yo
 ### `bindPropsToFela(mapper)`
 **Function?\<mapper>**
 
-Used to automatically bind the Components props to the render function. This especially fits well if you follow the pattern of [presentational and container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.2vftfin5s) as the props passed to your Component basically describe how a presentational Component looks like. It passes the modified render function via props.<br>
+Used to automatically bind the component's props to the render function. This especially fits well if you follow the pattern of [presentational and container components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.2vftfin5s) as the props passed to your component basically describe how a presentational component looks like. It passes the modified render function via props.<br>
 Optionally pass a custom mapper to alter the shape of the props passed to Fela.
 
 ```javascript
@@ -103,11 +103,11 @@ const EnhancedApp = bindPropsToFela(mapper)(App)
 ### `bindStateToFela(mapper)`
 **Function?\<mapper>**
 
-Similar to `bindPropsToFela` but with a more dynamic nature. It binds the current Component state to Fela's render function.<br>
-This is especially useful if you want to modify styles based on user input or user interaction. It adds the modified render function to the Component itself (`this.fela`).<br>
-You may also pass a mapper to alter the shape. It also accepts the Component's props as second parameter.
+Similar to `bindPropsToFela` but with a more dynamic nature. It binds the current component state to Fela's render function.<br>
+This is especially useful if you want to modify styles based on user input or user interaction. It adds the modified render function to the component itself (`this.fela`).<br>
+You may also pass a mapper to alter the shape. It also accepts the component's props as second parameter.
 
-> It only works with stateful class Components as function Components do not have state at all.
+> It only works with stateful class components as functional components do not have state at all.
 
 ```javascript
 const EnhancedApp = bindStateToFela()(App)
