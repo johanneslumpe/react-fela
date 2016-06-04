@@ -24,14 +24,16 @@ The package is also available on [npmcdn](https://npmcdn.com/) for those not usi
 > **Note**: You need to include React and Fela on your own as well.
 
 ```HTML
-<!-- Production build (minified)  -->
-<script src="https://npmcdn.com/react-fela@1.0.0/dist/react-fela.min.js"></script>
 <!-- Development build (with warnings)  -->
+<script src="https://npmcdn.com/react-fela@1.0.0/dist/react-fela.js"></script>
+<!-- Production build (minified)  -->
 <script src="https://npmcdn.com/react-fela@1.0.0/dist/react-fela.min.js"></script>
 ```
 
 ## API
 ### `<Provider renderer>`
+**Renderer\<renderer>**
+
 The `<Provider>` Component should wrap your whole application. It only accepts a single prop which is your [Fela Renderer](https://github.com/rofrischmann/fela/blob/master/docs/GettingStarted.md#8-rendering).<br>
 It uses React's context to pass down the Renderer's render function. It actually is all you need to fully use Fela within your React application.
 ```javascript
@@ -74,10 +76,10 @@ const selector = props => ({
 })
 ```
 
-### Helper HoCs
+## Helper HoCs
 I have found that there are some recurring patterns on how to actually render your selectors and keyframes. To simplify those, this package provides two HoCs ([Higher-order Components](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.njbld18x8)).
 
-#### `bindPropsToFela(mapper)`
+### `bindPropsToFela(mapper)`
 **Function?\<mapper>**
 
 Used to automatically bind the Components props to the render function. This especially fits well if you follow the pattern of [presentational and container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.2vftfin5s) as the props passed to your Component basically describe how a presentational Component looks like. It passes the modified render function via props.<br>
@@ -97,7 +99,7 @@ const mapper = props => ({
 const EnhancedApp = bindPropsToFela(mapper)(App)
 ```
 
-#### `bindStateToFela(mapper)`
+### `bindStateToFela(mapper)`
 **Function?\<mapper>**
 
 Similar to `bindPropsToFela` but with a more dynamic nature. It binds the current Component state to Fela's render function.<br>
