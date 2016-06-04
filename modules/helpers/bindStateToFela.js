@@ -13,9 +13,9 @@ export default function bindStateToFela(mapper = defaultMapper) {
     class EnhancedComponent extends component {
       render() {
         this.fela = (selector, additionalProps, plugins) => this.context.fela(selector, additionalProps ? {
-          ...mapper(this.state),
+          ...mapper(this.state, this.props),
           ...additionalProps
-        } : mapper(this.state), plugins)
+        } : mapper(this.state, this.props), plugins)
         return super.render()
       }
     }
