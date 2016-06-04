@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import { PropTypes } from 'react'
+import warning from 'fbjs/lib/warning'
 
 const defaultMapper = state => state
 
@@ -6,7 +7,8 @@ export default function bindStateToFela(mapper = defaultMapper) {
   return component => {
     // handle functional Components
     if (!component.prototype.setState) {
-      console.warn('Does not work with functional Components.')
+      warning(false, 'Binding state to Fela does not work with functional Components. They do not have state at all.')
+      return component
     }
 
     // handle stateful class Components
