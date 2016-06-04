@@ -6,16 +6,17 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "scripts": {
-    "demo": "babel-node example/server.js",
+    "dist": "cross-env NODE_ENV=production babel-node scripts/buildPackage && cross-env NODE_ENV=development babel-node scripts/buildPackage",
+    "example": "webpack-dev-server --config --no-info --content-base ./example/",
+    "example:server": "babel-node example/server.js",
+    "example:universal": "concurrent --kill-others \"npm run example\" \"npm run example:server\"",
     "lint": "eslint modules",
     "prepare": "npm run lint && npm test && npm run dist && npm run babel",
     "release": "npm run prepare && npm publish",
     "test": "istanbul cover node_modules/mocha/bin/_mocha -- --opts test/mocha.opts"
   },
   "peerDependencies": {
-    "fela": "^1.0.0-alpha.5",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react": "^15.1.0"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -31,6 +32,8 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "codeclimate-test-reporter": "^0.3.1",
+    "concurrently": "^2.1.0",
+    "cross-env": "^1.0.8",
     "esformatter": "^0.9.0",
     "esformatter-braces": "^1.2.1",
     "esformatter-collapse-objects": "^0.5.1",
