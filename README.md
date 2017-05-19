@@ -9,7 +9,8 @@ Official React bindings for Fela.
 
 </p>
 <br>
-This package only includes React bindings for [ Fela](http://github.com/rofrischmann/fela). <br>
+
+This package only includes React bindings for [Fela](http://github.com/rofrischmann/fela). <br>
 It assumes you already know about Fela and how to use it.
 
 > [Learn about Fela!](http://github.com/rofrischmann/fela)
